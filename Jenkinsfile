@@ -12,26 +12,23 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Build') {
             steps {
-                echo "Building the application..."
-                sh 'npm run build'
+                bat 'npm run build'
             }
         }
 
         stage('Run Tests') {
             steps {
-                echo "Running automated tests..."
-                sh 'npm test -- --ci --reporters=jest-junit'
+                bat 'npm test'
             }
-
             post {
                 always {
-                    junit 'junit.xml'   // test report file
+                    junit '**/junit.xml'
                 }
             }
         }
