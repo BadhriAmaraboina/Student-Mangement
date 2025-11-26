@@ -6,52 +6,29 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo "Pulling code from GitHub..."
-<<<<<<< HEAD
-                git url: 'https://github.com/your-username/your-repo.git', branch: 'main'
-=======
                 git url: 'https://github.com/BadhriAmaraboina/Student-Mangement.git', branch: 'main'
->>>>>>> 7a3e1a4ee41fafe8300ccbf297a2a6a3a6a42071
             }
         }
 
         stage('Install Dependencies') {
             steps {
-<<<<<<< HEAD
-                sh 'npm install'
-=======
                 bat 'npm install'
->>>>>>> 7a3e1a4ee41fafe8300ccbf297a2a6a3a6a42071
             }
         }
 
         stage('Build') {
             steps {
-<<<<<<< HEAD
-                echo "Building the application..."
-                sh 'npm run build'
-=======
                 bat 'npm run build'
->>>>>>> 7a3e1a4ee41fafe8300ccbf297a2a6a3a6a42071
             }
         }
 
         stage('Run Tests') {
             steps {
-<<<<<<< HEAD
-                echo "Running automated tests..."
-                sh 'npm test -- --ci --reporters=jest-junit'
-            }
-
-            post {
-                always {
-                    junit 'junit.xml'   // test report file
-=======
                 bat 'npm test'
             }
             post {
                 always {
                     junit '**/junit.xml'
->>>>>>> 7a3e1a4ee41fafe8300ccbf297a2a6a3a6a42071
                 }
             }
         }
