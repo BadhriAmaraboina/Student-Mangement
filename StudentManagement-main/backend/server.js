@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// MongoDB Connection extern
+// MongoDB Connection external
 mongoose
   .connect("mongodb+srv://prashanthagithe:prashanth@cluster0.vus3a9i.mongodb.net/StudentDB")
   .then(() => console.log("Database Connected Successfully!"))
